@@ -2,10 +2,10 @@
  import axios from 'axios'
 
 
-const useFetch = (endpoint, query) =>{
+const useFetch = (endpoint, query) => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false)
-    const [error, setError] = useEffect(null)
+    const [error, setError] = useState(null)
 
 
     const options = {
@@ -20,8 +20,6 @@ const useFetch = (endpoint, query) =>{
 
       const fetchData = async () =>{
         setIsLoading(true);
-
-
         try{
             const response = await axios.request(options);
             setData(response.data.data);
